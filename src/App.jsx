@@ -1,5 +1,7 @@
+port React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
 
-import React, { useState } from 'react';
 import ProductList from './ProductList';
 import './App.css';
 import AboutUs from './AboutUs';
@@ -12,7 +14,18 @@ function App() {
     setShowProductList(true);
   };
 
+    useEffect(() => {
+        // Perform side effects here, e.g., fetching data or updating the document title
+        document.title = "Welcome to Paradise Nursery";
+
+        // Cleanup function (optional)
+        return () => {
+            document.title = "Plant Shopping";
+        };
+    }, []); // Empty dependency array means this runs once on mount and cleanup on unmount
+
   return (
+      <Provider store={store}>
     <div className="app-container">
       <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
         <div className="background-image"></div>
@@ -36,10 +49,9 @@ function App() {
         <ProductList />
       </div>
     </div>
+      </Provider>
   );
 }
 
 export default App;
-
-
 
