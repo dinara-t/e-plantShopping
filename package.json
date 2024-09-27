@@ -2,6 +2,7 @@
   "name": "shoppingcart",
   "private": false,
   "version": "0.0.0",
+  "homepage": "https://dinara-t.github.io/e-plantShopping",
   "type": "module",
   "scripts": {
     "dev": "vite",
